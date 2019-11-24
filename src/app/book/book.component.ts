@@ -10,6 +10,8 @@ export class BookComponent implements OnInit {
 
   book: Book;
 
+  symbolCount: number;
+
   constructor() {
     this.book = {
       title: 'Angular 9 Core',
@@ -18,7 +20,12 @@ export class BookComponent implements OnInit {
     };
   }
 
+  displaySymbolCount(text: string | number): void {
+    this.symbolCount = String(text || '').length;
+  }
+
   ngOnInit() {
+    // Initializing
   }
 
 }

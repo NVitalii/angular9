@@ -1,2 +1,5 @@
-<p>Book title: {{book.title}}</p>
-<p>Book year: {{book.year}}</p>
+<p (click)="displaySymbolCount(book.title)">Book title: {{book.title}}</p>
+<p (click)="displaySymbolCount(book.year)">Book year: {{book.year}}</p>
+<p (click)="displaySymbolCount(book.description)">Book description: {{book.description}}</p>
+
+<div>Number of characters: {{symbolCount}} </div>
