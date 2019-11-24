@@ -6,13 +6,15 @@ import {BooksComponent} from './books/books.component';
 import {QuotePipe} from './quote.pipe';
 import {BookComponent} from './book/book.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {CustomizerDirective} from './customizer.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
     QuotePipe,
-    BookComponent
+    BookComponent,
+    CustomizerDirective
   ],
   imports: [
     BrowserModule,
