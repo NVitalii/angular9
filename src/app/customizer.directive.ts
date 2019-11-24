@@ -10,13 +10,13 @@ export class CustomizerDirective {
   @HostListener('mouseenter')
   enableError(): void {
     this.el.nativeElement.querySelector('#title')
-      .classList.add('error');
+      .classList.add(this.className);
   }
 
   @HostListener('mouseleave')
   disableError(): void {
     this.el.nativeElement.querySelector('#title')
-      .classList.remove('error');
+      .classList.remove(this.className);
   }
 
   constructor(private el: ElementRef) {

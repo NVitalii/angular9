@@ -1,4 +1,4 @@
-<form [formGroup]="bookForm" appCustomizer>
+<form [formGroup]="bookForm" appCustomizer [className]="'error'">
   <div>
     <label id="title">Title</label><input formControlName="title">
     <div *ngIf="!isValidControl('title')">Please, enter valid title</div>
