@@ -1,11 +1,6 @@
 <div>
   <div [ngClass]="{javascript: isJavaScript(book)}" *ngFor="let book of books">
-    <h4>{{book.title}}</h4>
-    <div>Author: {{quote(book.author)}}</div>
-    <div>Year: {{book.year}}</div>
-    <div>Pages: {{book.pages}}</div>
-    <div>Description: {{book.description}}</div>
-    <div>Price: {{book.price | currency : 'UAH': true}}</div>
+    <app-book-details [book]="book"></app-book-details>
   </div>
 </div>
 <div>

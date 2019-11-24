@@ -7,6 +7,7 @@ import {QuotePipe} from './quote.pipe';
 import {EditBookComponent} from './edit-book/edit-book.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CustomizerDirective} from './customizer.directive';
+import {BookDetailsComponent} from './book-details/book-details.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {CustomizerDirective} from './customizer.directive';
     BooksComponent,
     QuotePipe,
     EditBookComponent,
-    CustomizerDirective
+    CustomizerDirective,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,
