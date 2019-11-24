@@ -24,6 +24,10 @@ export class BookComponent implements OnInit {
   ngOnInit() {
   }
 
+  isValidControl(name: string): boolean {
+    return !this.bookForm.get(name).valid && this.bookForm.get(name).touched;
+  }
+
   save() {
     this.bookService.addBook(this.bookForm.value as Book);
   }
