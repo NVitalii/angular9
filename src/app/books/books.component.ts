@@ -13,16 +13,17 @@ export class BooksComponent implements OnInit {
 
   symbolCount: number;
 
-  books: Book[];
-
-  constructor(bookService: BookService) {
+  constructor(private bookService: BookService) {
     this.book = {
       price: 100,
       title: 'Angular 9 Core',
       year: 2019,
       author: 'Unknown'
     };
-    this.books = bookService.getBooks();
+  }
+
+  get books(): Book[] {
+    return this.bookService.getBooks();
   }
 
   quote(text: string): string {
