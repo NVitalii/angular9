@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Book} from '../book';
 import {BookService} from '../book.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Book} from '../book';
 
 @Component({
   selector: 'app-book',
@@ -8,14 +9,22 @@ import {BookService} from '../book.service';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
+  bookForm: FormGroup;
 
-  constructor(private bookService: BookService) {
+  constructor(private bookService: BookService, formBuilder: FormBuilder) {
+    this.bookForm = formBuilder.group({
+      title: formBuilder.control('', [Validators.required]),
+      author: formBuilder.control('', [Validators.required]),
+      pages: formBuilder.control('', [Validators.required]),
+      year: formBuilder.control('', [Validators.required]),
+      description: formBuilder.control('', [Validators.required]),
+    });
   }
 
   ngOnInit() {
   }
 
-  save(book: Book) {
-    this.bookService.addBook(book);
+  save() {
+    this.bookService.addBook(this.bookForm.value as Book);
   }
 }

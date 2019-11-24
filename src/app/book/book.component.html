@@ -1,16 +1,19 @@
-<form (ngSubmit)="save(bookForm.value)" #bookForm="ngForm">
+<form [formGroup]="bookForm">
   <div>
-    <label>Title</label><input name="title" ngModel #title="ngModel" required>
-    <div *ngIf="!title.valid && title.touched">Please, enter valid title</div>
+    <label>Title</label><input formControlName="title">
+    <div *ngIf="!bookForm.get('title').valid && bookForm.get('title').touched">Please, enter valid title</div>
   </div>
   <div>
-    <label>Title</label><input name="pages" ngModel #author="ngModel" required>
+    <label>Author</label><input formControlName="author">
   </div>
   <div>
-    <label>Pages</label><input name="pages" ngModel #pages="ngModel" required>
+    <label>Pages</label><input formControlName="pages">
   </div>
   <div>
-    <label>Year</label><input name="year" ngModel #year="ngModel" required>
+    <label>Year</label><input formControlName="year">
   </div>
-  <button type="submit" [hidden]="!bookForm.valid">Save</button>
+  <div>
+    <label>Description</label><input formControlName="description">
+  </div>
+  <button type="submit" [disabled]="!bookForm.valid" (click)="save()">Save</button>
 </form>
