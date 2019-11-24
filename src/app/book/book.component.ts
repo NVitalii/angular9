@@ -25,6 +25,10 @@ export class BookComponent implements OnInit {
     this.books = bookService.getBooks();
   }
 
+  quote(text: string): string {
+    return '"' + text + '"';
+  }
+
   isJavaScript(book: Book): boolean {
     return book.title.toLowerCase().indexOf('javascript') >= 0;
   }
