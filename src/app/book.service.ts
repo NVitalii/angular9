@@ -5,7 +5,7 @@ import {Book} from './book';
   providedIn: 'root'
 })
 export class BookService {
-  private readonly books: Book[];
+  private books: Book[];
 
   constructor() {
     this.books = [{
@@ -28,5 +28,10 @@ export class BookService {
 
   getBooks(): Book[] {
     return this.books;
+  }
+
+  addBook(book: Book): void {
+    //this.books = [...this.books, book];
+    this.books.push(book);
   }
 }
