@@ -14,7 +14,7 @@ export class BookService {
       year: 2008,
       pages: 172,
       price: 100,
-      description: 'This authoritative book scrapes away these bad features to reveal a subset of JavaScript that\'s more reliable, readable, and maintainable'
+      description: 'This authoritative books scrapes away these bad features to reveal a subset of JavaScript that\'s more reliable, readable, and maintainable'
     },
       {
         title: 'Mastering TypeScript',
