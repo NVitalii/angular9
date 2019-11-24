@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
+import {BookService} from '../book.service';
 
 @Component({
   selector: 'app-book',
@@ -14,27 +15,13 @@ export class BookComponent implements OnInit {
 
   books: Book[];
 
-  constructor() {
+  constructor(bookService: BookService) {
     this.book = {
       title: 'Angular 9 Core',
       year: 2019,
       author: 'Unknown'
     };
-
-    this.books = [{
-      title: 'JavaScript: The Good Parts',
-      author: 'Douglas Crockford',
-      year: 2008,
-      pages: 172,
-      description: 'This authoritative book scrapes away these bad features to reveal a subset of JavaScript that\'s more reliable, readable, and maintainable'
-    },
-      {
-        title: 'Mastering TypeScript',
-        author: 'Nathan Rozentals',
-        year: 2015,
-        pages: 364,
-        description: 'Build enterprise-ready, industrial strength web applications using TypeScript and leading JavaScript frameworks'
-      }];
+    this.books = bookService.getBooks();
   }
 
   isJavaScript(book: Book): boolean {
@@ -50,3 +37,4 @@ export class BookComponent implements OnInit {
   }
 
 }
+
