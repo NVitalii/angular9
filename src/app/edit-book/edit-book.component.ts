@@ -25,7 +25,7 @@ export class EditBookComponent implements OnInit {
   }
 
   isValidControl(name: string): boolean {
-    return !this.bookForm.get(name).valid && this.bookForm.get(name).touched;
+    return this.bookForm.get(name).valid || this.bookForm.get(name).touched;
   }
 
   save() {

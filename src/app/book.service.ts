@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Book} from './book';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,10 @@ import {Book} from './book';
 export class BookService {
   private books: Book[];
 
+  private $subject: BehaviorSubject<Book[]>;
+
   constructor() {
+    this.$subject = new BehaviorSubject<Book[]>(this.books);
     this.books = [{
       title: 'JavaScript: The Good Parts',
       author: 'Douglas Crockford',
@@ -24,14 +28,16 @@ export class BookService {
         price: 200,
         description: 'Build enterprise-ready, industrial strength web applications using TypeScript and leading JavaScript frameworks'
       }];
+    this.$subject.next(this.books);
   }
 
-  getBooks(): Book[] {
-    return this.books;
+  getBooks(): Observable<Book[]> {
+    return this.$subject;
   }
 
   addBook(book: Book): void {
     this.books = [...this.books, book];
+    this.$subject.next(this.books);
     // this.books.push(edit-book);
   }
 }

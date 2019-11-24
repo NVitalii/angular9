@@ -13,6 +13,8 @@ export class BooksComponent implements OnInit {
 
   symbolCount: number;
 
+  books: Book[];
+
   constructor(private bookService: BookService) {
     this.book = {
       price: 100,
@@ -20,10 +22,8 @@ export class BooksComponent implements OnInit {
       year: 2019,
       author: 'Unknown'
     };
-  }
-
-  get books(): Book[] {
-    return this.bookService.getBooks();
+    this.bookService.getBooks().subscribe(books =>
+      this.books = books);
   }
 
   isJavaScript(book: Book): boolean {
