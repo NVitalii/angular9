@@ -5,10 +5,10 @@ import {Book} from '../book';
 
 @Component({
   selector: 'app-book',
-  templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css']
+  templateUrl: './edit-book.component.html',
+  styleUrls: ['./edit-book.component.css']
 })
-export class BookComponent implements OnInit {
+export class EditBookComponent implements OnInit {
   bookForm: FormGroup;
 
   constructor(private bookService: BookService, formBuilder: FormBuilder) {
